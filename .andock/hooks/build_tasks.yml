@@ -1,0 +1,15 @@
+- name: Composer install
+  command: "fin rc -T composer install"
+  args:
+    chdir: "{{ build_path }}"
+  tags:
+    - print_action
+
+- name: Please copy and paste the following SSH key to your git user. andock will use it to checkout your target git repository.
+  command: "cat /home/andock/.ssh/id_rsa.pub"
+  register: ssh_key
+
+- name: "Please copy and paste the following SSH key to your git user. andock will use it to checkout your target git repository."
+  debug: msg="{{ ssh_key.stdout_lines }}"
+  tags:
+    - print_action

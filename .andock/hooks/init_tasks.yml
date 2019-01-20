@@ -1,0 +1,3 @@
+
+- name: "Please copy and paste the following SSH key to your git user. andock will use it to checkout your target git repository."
+  debug: msg="XXXX"
